@@ -1,0 +1,140 @@
+from flask import Flask, jsonify, request
+#from flask_sqlalchemy import SQLAlchemy 
+
+app = Flask(__name__)
+
+
+
+# Init SQL connection  via WINDOWS AUTHENTICATION
+# Server = 'KOMPUTER\MSSQLSERVER01'   #sql username
+# Database = 'SpotifyDataSQL' #database name
+# Driver = 'ODBC Driver 17 for SQL Server' #ODBC driver (search for odbc in windows > then drivers)
+# Database_con = f'mssql://@{Server}/{Database}?driver={Driver}'
+
+# engine = create_engine(Database_con)
+# con = engine.connect()
+
+#### READ DATA:
+# df = pd.read_sql_query("Select * from [dbo].[name]",con)
+
+json_test = [
+  {
+    "fname": "Kent",
+    "lname": "Brockman",
+    "timestamp": "2018-05-10 18:12:42"
+  },
+  {
+    "fname": "Bunny",
+    "lname": "Easter",
+    "timestamp": "2018-05-10 18:12:42"
+  },
+  {
+    "fname": "Doug",
+    "lname": "Farrell",
+    "timestamp": "2018-05-10 18:12:42"
+  }
+]
+
+@app.route("/")
+@app.route("/home")
+def home():
+    return "<h1>Home Page</h1>"
+
+
+@app.route("/about")
+def about():
+    return "<h1>About Page</h1>"
+
+
+@app.route("/name/<name>")
+def hi_name(name):
+    return 'Hello %s' % name
+
+
+@app.route("/data", methods=['POST', 'GET'])
+def return_json():
+    #return jsonify(json_test)
+    return jsonify({'result' : 'success', 'x':'100'})
+
+
+@app.route("/artist/<artist>", method=['GET'])
+def find_artist(artist):
+    
+    return jsonify({'artist':'flume'})
+
+
+@app.route("/song/<song>", method=['GET'])
+def find_song(song):
+    
+    return jsonify({'artist':'flume'})
+
+
+if __name__ == '__main__':
+    app.run(debug=True)
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+# Models
+class Artists(db.Model):
+    artistID = db.Column(db.String(22),primary_key = True, unique = True)
+    artist_name = db.Column(db.String(250), foreign_key = True)
+    followers = db.Column(db.Bigint)
+    genres = db.Column(db.String(250))
+    
+class Data_by_artist(db.Model):
+    artist_name = db.Column(db.String(250), foreign_key = True)
+    genres = db.Column(db.String(250))
+    danceability = db.Column(db.Double)
+    energy = db.Column(db.Double)
+    loudness = db.Column(db.Double)
+    tempo = db.Column(db.Double)
+    count = db.Column(db.Smallint)
+
+class Data(db.Model):
+    songID = db.Column(db.String(30), primary_key = True, unique = True)
+    year = db.Column(db.Int)
+    valence = db.Column(db.Double)
+    artist_name = db.Column(db.String(250), foreign_key = True)
+    danceability = db.Column(db.Double)
+    song_name = db.Column(db.String(250))
+    tempo = db.Column(db.Double)
+    
+class Tracks(db.Model):
+    songID = db.Column(db.String(30), primary_key = True, unique = True)
+    song_name = db.Column(db.String(250))
+    artist_name = db.Column(db.String(250), foreign_key = True)
+    artistID_S = db.Column(db.String(250))
+    release_date = db.Column(db.Date)
+    danceability = db.Column(db.Double)
+    energy = db.Column(db.Double)
+    loudness = db.Column(db.Double)
+    valance = db.Column(db.Double)
+    tempo = db.Column(db.Double)
+
+class Data_by_year(db.Model):
+    year = db.Column(db.Int)
+    accousticness = db.Column(db.Double)
+    danceability = db.Column(db.Double)
+    duration_ms = db.Column(db.String(10))
+    energy = db.Column(db.Double)
+    instrumentalness = db.Column(db.Double)
+    liveness = db.Column(db.Double)
+    loudness = db.Column(db.Double)
+    speechiness = db.Column(db.Double)
+    tempo = db.Column(db.Double)
+    valance = db.Column(db.Double)
+    popularity = db.Column(db.Double)
+    key = db.Column(db.Smallint)
+##### UPDATE:   
+#class Id_artist_song(db.Model):
