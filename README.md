@@ -85,3 +85,4 @@ In the meantime I was writing C# application with UI based on Spotify theme.
 I had to implement some additional features completly not related to the topic, but in order to pass with an A grade I needed to do something
 about it. That's why there a second Form nested in "other" section which uses **BasicItemSQL.cs**. Basic class needed to implement operation
 on SQL DB such as add or delete item, because main goal was only about search and retrive data based on given name of an artist or song.
+
