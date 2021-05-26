@@ -17,11 +17,11 @@ which give more details about user's taste in music.
 I wanted to also add an option to review past years based on Spotify data in terms of key values (similar to 5 given above but way more), but
 I didn't finish it. Propably I'll add in the future.
 
-## The whole project was a real pleasure for me, because I felt like I was doing something that I like: both music and programming.
+##### The whole project was a real pleasure for me, because I felt like I was doing something that I like: both music and programming.
 
 
 
-##### Setting up Flask
+#### Setting up Flask
 You need to make sure that you have Python enviroment installed on your PC. Version I used was 3.9.5. 
 By simple **pip install** you can download via cmd window all the needed packages. You can see al the 
 packeges that I used at the top of my .py script.
@@ -45,13 +45,13 @@ If it's all set, then you could start Flask running in the background by typing 
 From now on it's running in the debug mode, so that if you add changes to the Flask file .py, then by pressing "save button"
 they will be immediately added and flask api will restart instantly by itself.
 
-##### C# APP
+#### C# APP
 As I said - C# plays a role of a frontend app, but that's not completly true. It has Spotify black-green UI on top, but also
 a powerful, but simple backend mechanism which allows to comunicate with the API, by sending GET requests and reciving 
 serialized Json objects as answers. It can both process recived data and display the answers in a proper way.
 I made special effort to try to make it dummy-proof both on C# app's side and the API's side. 
 
-##### SQL DATABSE
+#### SQL DATABSE
 The whole operation of building a seperate database was not hard. Nor it should be for you. The hardest thing was to prepare 
 the data in a proper way, so that the DB would read it and wouldn't have to store unnecessary Megabytes of data.
 
@@ -59,7 +59,7 @@ After Jupyter notebook playground work I was able to trim the data in the desire
 tangled primary keys which were three, four or more in one cell, so that the DB would have a problem matching them
 in a query.
 
-##### Project Background
+#### Project Background
 My goal was simple at first: I needed an wpf app to complete my semester and I had to implement all of the requirements to get A grade.
 The app itself was meant to be able to connect to SQL, retrive data, add, delete etc. I had to implement async functions, own events and some
 animations using e.graphics. So it doesn't sound hard, but I wanted to do something extra.
