@@ -59,6 +59,11 @@ After Jupyter notebook playground work I was able to trim the data in the desire
 tangled primary keys which were three, four or more in one cell, so that the DB would have a problem matching them
 in a query.
 
+#### MAIN APP SCHEMA
+
+![image](https://user-images.githubusercontent.com/77805222/119971731-a26b7500-bfb1-11eb-9438-36481b1e9792.png)
+
+
 #### Project Background
 My goal was simple at first: I needed an wpf app to complete my semester and I had to implement all of the requirements to get A grade.
 The app itself was meant to be able to connect to SQL, retrive data, add, delete etc. I had to implement async functions, own events and some
@@ -72,7 +77,7 @@ The first problem was how big and not optimalized this data actually is for a da
 Although there are values that could be used as primary keys in DB tables, are often stacked together in one data cell, e.i.:
 - artistID are put together in one cell if one song has multiple artists singing in it (features)
 - JSON file has nested recomended artists based on their IDs but has 250Mb of size
-- there is too much unnecessary data for me to work on.
+- there is too much unnecessary data for me to work with.
 
 So for the beggining I had to write some scripts that would trim the .cvs files in a way, that I found useful.
 Python Jupiter notebooks came handy. I had to delete some data and split some of the rows into two or three seperate (but duplicated) rows
